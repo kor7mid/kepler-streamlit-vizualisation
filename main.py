@@ -200,7 +200,7 @@ def create_map(layer_order):
         set_as_default=True,
     )
     layer_template = get_config_with_name("new_york_city_taxi")
-    map_obj = KeplerGl(height=1200, config=config)
+    map_obj = KeplerGl(height=800,width=1200, config=config)
 
     for layer in layer_order:
         if layer == "boundary" and st.session_state.get("show_boundary", False):
@@ -241,7 +241,7 @@ def create_map(layer_order):
 
 def display_map():
     if st.session_state["map_initialized"]:
-        keplergl_static(st.session_state["map_obj"], center_map=True,width=1200)
+        keplergl_static(st.session_state["map_obj"], center_map=True)
     else:
         st.warning("Click 'Apply' to display the map.")
 
