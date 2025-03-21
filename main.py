@@ -194,10 +194,9 @@ def initialize_session_state():
 
 def create_map(layer_order):
     config = get_config_with_name("base")
-    # Utiliser un style de carte par défaut (sans Mapbox)
     config = update_map_style(
         config,
-        map_name="streets",  # Style par défaut de Kepler GL
+        map_name="streets",  
         set_as_default=True,
     )
     layer_template = get_config_with_name("new_york_city_taxi")
@@ -242,7 +241,7 @@ def create_map(layer_order):
 
 def display_map():
     if st.session_state["map_initialized"]:
-        keplergl_static(st.session_state["map_obj"], center_map=True)
+        keplergl_static(st.session_state["map_obj"], center_map=True,width=1200)
     else:
         st.warning("Click 'Apply' to display the map.")
 
