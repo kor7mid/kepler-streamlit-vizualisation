@@ -6,7 +6,7 @@ from streamlit_keplergl import keplergl_static
 from config.config_loader import get_config_with_name, update_map_style
 
 
-# st.set_page_config(layout="wide")
+st.set_page_config(layout="wide")
 
 # MAPBOX_TOKEN = st.secrets["MAPBOX_TOKEN"]
 # CUSTOM_MAP_ICON = st.secrets["CUSTOM_MAP_ICON"]
