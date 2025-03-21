@@ -5,9 +5,10 @@ from keplergl import KeplerGl
 from streamlit_keplergl import keplergl_static
 from config.config_loader import get_config_with_name, update_map_style
 
-MAPBOX_TOKEN = st.secrets["MAPBOX_TOKEN"]
-CUSTOM_MAP_ICON = st.secrets["CUSTOM_MAP_ICON"]
-CUSTOM_MAP_URL = st.secrets["CUSTOM_MAP_URL"]
+# Suppression des secrets Mapbox
+# MAPBOX_TOKEN = st.secrets["MAPBOX_TOKEN"]
+# CUSTOM_MAP_ICON = st.secrets["CUSTOM_MAP_ICON"]
+# CUSTOM_MAP_URL = st.secrets["CUSTOM_MAP_URL"]
 
 point_measures = ["trip_count", "passenger_count"]
 h3_measures = ["trip_count", "passenger_count"]
@@ -191,12 +192,10 @@ def initialize_session_state():
 
 def create_map(layer_order):
     config = get_config_with_name("base")
+    # Utiliser un style de carte par défaut (sans Mapbox)
     config = update_map_style(
         config,
-        map_name="streets",
-        custom_map_token=MAPBOX_TOKEN,
-        custom_map_icon=CUSTOM_MAP_ICON,
-        custom_map_url=CUSTOM_MAP_URL,
+        map_name="streets",  # Style par défaut de Kepler GL
         set_as_default=True,
     )
     layer_template = get_config_with_name("new_york_city_taxi")
