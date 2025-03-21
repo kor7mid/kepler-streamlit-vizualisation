@@ -242,7 +242,7 @@ def create_map(layer_order):
 
 def display_map():
     if st.session_state["map_initialized"]:
-        keplergl_static(st.session_state["map_obj"], center_map=True)
+        keplergl_static(st.session_state["map_obj"], center_map=True,width=1200)
     else:
         st.warning("Click 'Apply' to display the map.")
 
